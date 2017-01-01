@@ -3,9 +3,23 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+use App\User;
+use Auth;
 
 class AdminController extends Controller
 {
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        // $this->middleware('auth');
+        $this->middleware('checkRole');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +27,8 @@ class AdminController extends Controller
      */
     public function index()
     {
-        //
+        $list_user = User::paginate(20);
+        return view('Admin/index', array('list_user'=> $list_user));
     }
 
     /**

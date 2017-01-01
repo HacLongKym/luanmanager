@@ -9,12 +9,21 @@
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
-
-Route::get('/', function () {
-    return view('welcome');
-});
+ */
+use App\User;
+Route::get('/', [
+    'uses' => function () {return view('welcome');},
+    // 'role' => User::ROLE_ADMIN,
+]);
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/home', [
+    'uses' => 'HomeController@index',
+    ]);
+
+
+Route::get('/admin', [
+    'uses' => 'AdminController@index',
+    'role' => User::ROLE_ADMIN + User::ROLE_MANAGER,
+]);

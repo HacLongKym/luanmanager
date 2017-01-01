@@ -2,22 +2,29 @@
 
 namespace App;
 
-use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
     use Notifiable;
-    const ROLE_ADMIN = 1;
+    const ROLE_ADMIN   = 1;
     const ROLE_MANAGER = 2;
-    const ROLE_USER = 4;
-    // public function roles()
-    // {
-    //     return $this->belongsToMany('App\Role', 'user_role', 'user_id', 'role_id');
-    // }
-    public function hasAnyRole($roles) {
+    const ROLE_USER    = 4;
+    public $role_name   = array(
+        0 => 'GUEST',
+        1 => 'Admin',
+        2 => 'Manager',
+        4 => 'User',
+    );
+    public function role()
+    {
+        return $this->role_name[$this->role];
+    }
+    public function hasAnyRole($roles)
+    {
         if (is_array($roles)) {
-            foreach ($roles as  $role) {
+            foreach ($roles as $role) {
                 if ($this->hasRole($role)) {
                     return true;
                 }
@@ -26,8 +33,9 @@ class User extends Authenticatable
             return $this->hasRole($roles);
         }
     }
-    public function hasRole($role) {
-        return ($this->roles & $role);
+    public function hasRole($role)
+    {
+        return ($this->role & $role);
     }
     /**
      * The attributes that are mass assignable.
