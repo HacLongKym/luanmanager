@@ -8,10 +8,10 @@
                     <div class="panel-heading">Table {{ $table->id }}</div>
                     <div class="panel-body">
 
-                        <a href="{{ url('Table/table/' . $table->id . '/edit') }}" class="btn btn-primary btn-xs" title="Edit Table"><span class="glyphicon glyphicon-pencil" aria-hidden="true"/></a>
+                        <a href="{{ url('admin/Table/table/' . $table->id . '/edit') }}" class="btn btn-primary btn-xs" title="Edit Table"><span class="glyphicon glyphicon-pencil" aria-hidden="true"/></a>
                         {!! Form::open([
                             'method'=>'DELETE',
-                            'url' => ['Table/table', $table->id],
+                            'url' => ['admin/Table/table', $table->id],
                             'style' => 'display:inline'
                         ]) !!}
                             {!! Form::button('<span class="glyphicon glyphicon-trash" aria-hidden="true"/>', array(

@@ -1,15 +1,15 @@
 <?php
 
-namespace DummyNamespace;
+namespace App\Http\Controllers\User;
 
-use DummyRootNamespaceHttp\Requests;
-use DummyRootNamespaceHttp\Controllers\Controller;
+use App\Http\Requests;
+use App\Http\Controllers\Controller;
 
-use DummyRootNamespace{{modelNamespace}}{{modelName}};
+use App\User;
 use Illuminate\Http\Request;
 use Session;
 
-class DummyClass extends Controller
+class UsersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,9 +18,9 @@ class DummyClass extends Controller
      */
     public function index()
     {
-        ${{crudName}} = {{modelName}}::paginate({{pagination}});
+        $users = User::paginate(25);
 
-        return view('{{viewPath}}{{viewName}}.index', compact('{{crudName}}'));
+        return view('User.users.index', compact('users'));
     }
 
     /**
@@ -30,7 +30,7 @@ class DummyClass extends Controller
      */
     public function create()
     {
-        return view('{{viewPath}}{{viewName}}.create');
+        return view('User.users.create');
     }
 
     /**
@@ -42,14 +42,14 @@ class DummyClass extends Controller
      */
     public function store(Request $request)
     {
-        {{validationRules}}
+        
         $requestData = $request->all();
-        {{fileSnippet}}
-        {{modelName}}::create($requestData);
+        
+        User::create($requestData);
 
-        Session::flash('flash_message', '{{modelName}} added!');
+        Session::flash('flash_message', 'User added!');
 
-        return redirect('{{routeGroup}}{{viewName}}');
+        return redirect('User/users');
     }
 
     /**
@@ -61,9 +61,9 @@ class DummyClass extends Controller
      */
     public function show($id)
     {
-        ${{crudNameSingular}} = {{modelName}}::findOrFail($id);
+        $user = User::findOrFail($id);
 
-        return view('{{viewPath}}{{viewName}}.show', compact('{{crudNameSingular}}'));
+        return view('User.users.show', compact('user'));
     }
 
     /**
@@ -75,9 +75,9 @@ class DummyClass extends Controller
      */
     public function edit($id)
     {
-        ${{crudNameSingular}} = {{modelName}}::findOrFail($id);
+        $user = User::findOrFail($id);
 
-        return view('{{viewPath}}{{viewName}}.edit', compact('{{crudNameSingular}}'));
+        return view('User.users.edit', compact('user'));
     }
 
     /**
@@ -90,15 +90,15 @@ class DummyClass extends Controller
      */
     public function update($id, Request $request)
     {
-        {{validationRules}}
+        
         $requestData = $request->all();
-        {{fileSnippet}}
-        ${{crudNameSingular}} = {{modelName}}::findOrFail($id);
-        ${{crudNameSingular}}->update($requestData);
+        
+        $user = User::findOrFail($id);
+        $user->update($requestData);
 
-        Session::flash('flash_message', '{{modelName}} updated!');
+        Session::flash('flash_message', 'User updated!');
 
-        return redirect('{{routeGroup}}{{viewName}}');
+        return redirect('User/users');
     }
 
     /**
@@ -110,10 +110,10 @@ class DummyClass extends Controller
      */
     public function destroy($id)
     {
-        {{modelName}}::destroy($id);
+        User::destroy($id);
 
-        Session::flash('flash_message', '{{modelName}} deleted!');
+        Session::flash('flash_message', 'User deleted!');
 
-        return redirect('{{routeGroup}}{{viewName}}');
+        return redirect('User/users');
     }
 }

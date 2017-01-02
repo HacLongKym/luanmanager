@@ -7,7 +7,23 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
+    /**
+     * Set default for column
+     */
+    protected $defaults = array(
+       'role' => 0,
+    );
+    /**
+     * Override __construct to set default value for column
+     */
+    public function __construct(array $attributes = array())
+    {
+        $this->setRawAttributes($this->defaults, true);
+        parent::__construct($attributes);
+    }
+    
     use Notifiable;
+    const ROLE_GUEST   = 0;
     const ROLE_ADMIN   = 1;
     const ROLE_MANAGER = 2;
     const ROLE_ORDER   = 4;

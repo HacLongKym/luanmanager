@@ -16,7 +16,7 @@
                             </ul>
                         @endif
 
-                        {!! Form::open(['url' => '/Table/table', 'class' => 'form-horizontal', 'files' => true]) !!}
+                        {!! Form::open(['url' => 'admin/Table/table', 'class' => 'form-horizontal', 'files' => true]) !!}
 
                         @include ('Table.table.form')
 

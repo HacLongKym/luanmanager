@@ -8,10 +8,10 @@
                     <div class="panel-heading">Category {{ $category->id }}</div>
                     <div class="panel-body">
 
-                        <a href="{{ url('Category/category/' . $category->id . '/edit') }}" class="btn btn-primary btn-xs" title="Edit Category"><span class="glyphicon glyphicon-pencil" aria-hidden="true"/></a>
+                        <a href="{{ url('admin/Category/category/' . $category->id . '/edit') }}" class="btn btn-primary btn-xs" title="Edit Category"><span class="glyphicon glyphicon-pencil" aria-hidden="true"/></a>
                         {!! Form::open([
                             'method'=>'DELETE',
-                            'url' => ['Category/category', $category->id],
+                            'url' => ['admin/Category/category', $category->id],
                             'style' => 'display:inline'
                         ]) !!}
                             {!! Form::button('<span class="glyphicon glyphicon-trash" aria-hidden="true"/>', array(

@@ -5,19 +5,19 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Product {{ $product->id }}</div>
+                    <div class="panel-heading">User {{ $user->id }}</div>
                     <div class="panel-body">
 
-                        <a href="{{ url('admin/Product/product/' . $product->id . '/edit') }}" class="btn btn-primary btn-xs" title="Edit Product"><span class="glyphicon glyphicon-pencil" aria-hidden="true"/></a>
+                        <a href="{{ url('admin/User/users/' . $user->id . '/edit') }}" class="btn btn-primary btn-xs" title="Edit User"><span class="glyphicon glyphicon-pencil" aria-hidden="true"/></a>
                         {!! Form::open([
                             'method'=>'DELETE',
-                            'url' => ['admin/Product/product', $product->id],
+                            'url' => ['admin/User/users', $user->id],
                             'style' => 'display:inline'
                         ]) !!}
                             {!! Form::button('<span class="glyphicon glyphicon-trash" aria-hidden="true"/>', array(
                                     'type' => 'submit',
                                     'class' => 'btn btn-danger btn-xs',
-                                    'title' => 'Delete Product',
+                                    'title' => 'Delete User',
                                     'onclick'=>'return confirm("Confirm delete?")'
                             ))!!}
                         {!! Form::close() !!}
@@ -28,9 +28,9 @@
                             <table class="table table-borderless">
                                 <tbody>
                                     <tr>
-                                        <th>ID</th><td>{{ $product->id }}</td>
+                                        <th>ID</th><td>{{ $user->id }}</td>
                                     </tr>
-                                    <tr><th> Name </th><td> {{ $product->name }} </td></tr><tr><th> Descr </th><td> {{ $product->descr }} </td></tr><tr><th> Price </th><td> {{ $product->price }} </td></tr>
+                                    <tr><th> Name </th><td> {{ $user->name }} </td></tr><tr><th> Email </th><td> {{ $user->email }} </td></tr><tr><th> Password </th><td> {{ $user->password }} </td></tr>
                                 </tbody>
                             </table>
                         </div>

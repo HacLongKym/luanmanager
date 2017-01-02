@@ -18,7 +18,7 @@
 
                         {!! Form::model($category, [
                             'method' => 'PATCH',
-                            'url' => ['/Category/category', $category->id],
+                            'url' => ['admin/Category/category', $category->id],
                             'class' => 'form-horizontal',
                             'files' => true
                         ]) !!}

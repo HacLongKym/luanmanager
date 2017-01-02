@@ -33,11 +33,21 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-
-                    <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
-                    </a>
+                    @if (!Auth::guest() && Auth::user()->role == \App\User::ROLE_ADMIN)
+                        <!-- Branding Image -->
+                        <a class="navbar-brand" href="{{ url('/admin') }}">
+                            {{ config('app.name', 'Marron') }} User
+                        </a>
+                        <a class="navbar-brand" href="{{ url('admin/Table/table') }}">Table</a>
+                        <a class="navbar-brand" href="{{ url('admin/Category/category') }}">Category</a>
+                        <a class="navbar-brand" href="{{ url('admin/Product/product') }}">Product</a>
+                        <a class="navbar-brand" href="{{ url('admin/User/users') }}">User</a>
+                    @else
+                        <!-- Branding Image -->
+                        <a class="navbar-brand" href="{{ url('/') }}">
+                            {{ config('app.name', 'Marron') }}
+                        </a>
+                    @endif
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">

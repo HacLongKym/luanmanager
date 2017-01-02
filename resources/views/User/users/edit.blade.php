@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Create New Category</div>
+                    <div class="panel-heading">Edit User {{ $user->id }}</div>
                     <div class="panel-body">
 
                         @if ($errors->any())
@@ -16,9 +16,14 @@
                             </ul>
                         @endif
 
-                        {!! Form::open(['url' => 'admin/Category/category', 'class' => 'form-horizontal', 'files' => true]) !!}
+                        {!! Form::model($user, [
+                            'method' => 'PATCH',
+                            'url' => ['admin/User/users', $user->id],
+                            'class' => 'form-horizontal',
+                            'files' => true
+                        ]) !!}
 
-                        @include ('Category.category.form')
+                        @include ('User.users.form', ['submitButtonText' => 'Update'])
 
                         {!! Form::close() !!}
 

@@ -8,7 +8,7 @@
                     <div class="panel-heading">Table</div>
                     <div class="panel-body">
 
-                        <a href="{{ url('/Table/table/create') }}" class="btn btn-primary btn-xs" title="Add New Table"><span class="glyphicon glyphicon-plus" aria-hidden="true"/></a>
+                        <a href="{{ url('admin/Table/table/create') }}" class="btn btn-primary btn-xs" title="Add New Table"><span class="glyphicon glyphicon-plus" aria-hidden="true"/></a>
                         <br/>
                         <br/>
                         <div class="table-responsive">
@@ -24,11 +24,11 @@
                                         <td>{{ $item->id }}</td>
                                         <td>{{ $item->name }}</td><td>{{ $item->status }}</td>
                                         <td>
-                                            <a href="{{ url('/Table/table/' . $item->id) }}" class="btn btn-success btn-xs" title="View Table"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"/></a>
-                                            <a href="{{ url('/Table/table/' . $item->id . '/edit') }}" class="btn btn-primary btn-xs" title="Edit Table"><span class="glyphicon glyphicon-pencil" aria-hidden="true"/></a>
+                                            <a href="{{ url('admin/Table/table/' . $item->id) }}" class="btn btn-success btn-xs" title="View Table"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"/></a>
+                                            <a href="{{ url('admin/Table/table/' . $item->id . '/edit') }}" class="btn btn-primary btn-xs" title="Edit Table"><span class="glyphicon glyphicon-pencil" aria-hidden="true"/></a>
                                             {!! Form::open([
                                                 'method'=>'DELETE',
-                                                'url' => ['/Table/table', $item->id],
+                                                'url' => ['admin/Table/table', $item->id],
                                                 'style' => 'display:inline'
                                             ]) !!}
                                                 {!! Form::button('<span class="glyphicon glyphicon-trash" aria-hidden="true" title="Delete Table" />', array(

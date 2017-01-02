@@ -8,7 +8,7 @@
                     <div class="panel-heading">Category</div>
                     <div class="panel-body">
 
-                        <a href="{{ url('/Category/category/create') }}" class="btn btn-primary btn-xs" title="Add New Category"><span class="glyphicon glyphicon-plus" aria-hidden="true"/></a>
+                        <a href="{{ url('admin/Category/category/create') }}" class="btn btn-primary btn-xs" title="Add New Category"><span class="glyphicon glyphicon-plus" aria-hidden="true"/></a>
                         <br/>
                         <br/>
                         <div class="table-responsive">
@@ -24,11 +24,11 @@
                                         <td>{{ $item->id }}</td>
                                         <td>{{ $item->name }}</td><td>{{ $item->descr }}</td><td>{{ $item->img_url }}</td>
                                         <td>
-                                            <a href="{{ url('/Category/category/' . $item->id) }}" class="btn btn-success btn-xs" title="View Category"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"/></a>
-                                            <a href="{{ url('/Category/category/' . $item->id . '/edit') }}" class="btn btn-primary btn-xs" title="Edit Category"><span class="glyphicon glyphicon-pencil" aria-hidden="true"/></a>
+                                            <a href="{{ url('admin/Category/category/' . $item->id) }}" class="btn btn-success btn-xs" title="View Category"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"/></a>
+                                            <a href="{{ url('admin/Category/category/' . $item->id . '/edit') }}" class="btn btn-primary btn-xs" title="Edit Category"><span class="glyphicon glyphicon-pencil" aria-hidden="true"/></a>
                                             {!! Form::open([
                                                 'method'=>'DELETE',
-                                                'url' => ['/Category/category', $item->id],
+                                                'url' => ['admin/Category/category', $item->id],
                                                 'style' => 'display:inline'
                                             ]) !!}
                                                 {!! Form::button('<span class="glyphicon glyphicon-trash" aria-hidden="true" title="Delete Category" />', array(

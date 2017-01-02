@@ -18,7 +18,7 @@
 
                         {!! Form::model($product, [
                             'method' => 'PATCH',
-                            'url' => ['/Product/product', $product->id],
+                            'url' => ['admin/Product/product', $product->id],
                             'class' => 'form-horizontal',
                             'files' => true
                         ]) !!}
