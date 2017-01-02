@@ -10,12 +10,16 @@ class User extends Authenticatable
     use Notifiable;
     const ROLE_ADMIN   = 1;
     const ROLE_MANAGER = 2;
-    const ROLE_USER    = 4;
-    public $role_name   = array(
-        0 => 'GUEST',
-        1 => 'Admin',
-        2 => 'Manager',
-        4 => 'User',
+    const ROLE_ORDER   = 4;
+    const ROLE_CHEF    = 8;
+    const ROLE_BAR     = 16;
+    public $role_name  = array(
+        0  => 'GUEST',
+        1  => 'Admin',
+        2  => 'Manager',
+        4  => 'ORDER (Đặt bàn)',
+        8  => 'Chef (Đầu Bếp)',
+        16 => 'Bar Receptionist (Lễ Tân)',
     );
     public function role()
     {

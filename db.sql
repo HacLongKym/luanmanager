@@ -33,6 +33,7 @@ ID bigint(20) NOT NULL AUTO_INCREMENT PRIMARY KEY,
 `category_id` bigint(20) DEFAULT 1,
 `img_url` text,
 `price` bigint(20) DEFAULT 0,
+count bigint(20) DEFAULT 0,
 status int(11) DEFAULT 0,
 create_time DATETIME DEFAULT CURRENT_TIMESTAMP,
 update_time  DATETIME ON UPDATE CURRENT_TIMESTAMP

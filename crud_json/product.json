@@ -1,0 +1,25 @@
+{
+  "fields": [
+    {
+      "name": "name",
+      "type": "string"
+    },
+    {
+      "name": "descr",
+      "type": "text"
+    },
+    {
+      "name": "price",
+      "type": "number"
+    },
+    {
+      "name": "img_url",
+      "type": "file"
+    },
+    {
+      "name": "category_id",
+      "type": "select",
+      "options": [1,2,3,4]
+    }
+  ]
+}

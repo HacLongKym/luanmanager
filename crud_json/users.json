@@ -1,0 +1,26 @@
+{
+  "fields": [
+    {
+      "name": "name",
+      "type": "string"
+    },
+    {
+      "name": "Email",
+      "type": "email"
+    },
+    {
+      "name": "password",
+      "type": "password"
+    },
+    {
+      "name": "role",
+      "type": "select",
+      "options": [
+        "Manager",
+        "ORDER (Đặt bàn)",
+        "Chef (Đầu Bếp)",
+        "Bar Receptionist (Lễ Tân)"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "fields": [
+    {
+      "name": "name",
+      "type": "string"
+    },
+    {
+      "name": "descr",
+      "type": "text"
+    },
+    {
+      "name": "img_url",
+      "type": "file"
+    },
+    {
+      "name": "parent_id",
+      "type": "select",
+      "options": [1,2,3,4]
+    }
+  ]
+}

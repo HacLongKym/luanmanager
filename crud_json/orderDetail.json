@@ -1,0 +1,20 @@
+{
+  "fields": [
+    {
+      "name": "order_id",
+      "type": "number"
+    },
+    {
+      "name": "sanpham_id",
+      "type": "number"
+    },
+    {
+      "name": "amount",
+      "type": "number"
+    },
+    {
+      "name": "status",
+      "type": "number"
+    }
+  ]
+}

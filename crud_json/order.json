@@ -1,0 +1,12 @@
+{
+  "fields": [
+    {
+      "name": "status",
+      "type": "number"
+    },
+    {
+      "name": "ban_id",
+      "type": "number"
+    }
+  ]
+}
