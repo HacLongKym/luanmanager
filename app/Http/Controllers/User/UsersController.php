@@ -49,7 +49,7 @@ class UsersController extends Controller
 
         Session::flash('flash_message', 'User added!');
 
-        return redirect('User/users');
+        return redirect('admin/User/users');
     }
 
     /**
@@ -98,7 +98,7 @@ class UsersController extends Controller
 
         Session::flash('flash_message', 'User updated!');
 
-        return redirect('User/users');
+        return redirect('admin/User/users');
     }
 
     /**
@@ -114,6 +114,6 @@ class UsersController extends Controller
 
         Session::flash('flash_message', 'User deleted!');
 
-        return redirect('User/users');
+        return redirect('admin/User/users');
     }
 }

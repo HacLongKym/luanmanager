@@ -60,7 +60,7 @@ class TableController extends Controller
 
         Session::flash('flash_message', 'Table added!');
 
-        return redirect('Table/table');
+        return redirect('admin/Table/table');
     }
 
     /**
@@ -109,7 +109,7 @@ class TableController extends Controller
 
         Session::flash('flash_message', 'Table updated!');
 
-        return redirect('Table/table');
+        return redirect('admin/Table/table');
     }
 
     /**
@@ -125,6 +125,6 @@ class TableController extends Controller
 
         Session::flash('flash_message', 'Table deleted!');
 
-        return redirect('Table/table');
+        return redirect('admin/Table/table');
     }
 }

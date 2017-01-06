@@ -71,7 +71,7 @@ if ($request->hasFile('img_url')) {
 
         Session::flash('flash_message', 'Category added!');
 
-        return redirect('Category/category');
+        return redirect('admin/Category/category');
     }
 
     /**
@@ -131,7 +131,7 @@ if ($request->hasFile('img_url')) {
 
         Session::flash('flash_message', 'Category updated!');
 
-        return redirect('Category/category');
+        return redirect('admin/Category/category');
     }
 
     /**
@@ -147,6 +147,6 @@ if ($request->hasFile('img_url')) {
 
         Session::flash('flash_message', 'Category deleted!');
 
-        return redirect('Category/category');
+        return redirect('admin/Category/category');
     }
 }

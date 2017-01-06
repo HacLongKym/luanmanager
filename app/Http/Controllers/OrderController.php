@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Product;
 class OrderController extends Controller
 {
 
@@ -24,6 +24,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        return view('Marron/order');
+        $list_products = Product::paginate(30);
+        return view('Marron/order', array('list_products'=> $list_products));
     }
 }

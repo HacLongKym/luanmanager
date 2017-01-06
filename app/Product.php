@@ -20,6 +20,9 @@ class Product extends Model
         $this->setRawAttributes($this->defaults, true);
         parent::__construct($attributes);
     }
+    public function category_id() {
+        return $this->hasOne('App\Category', 'category_id', 'id');
+    }
     /**
      * The database table used by the model.
      *
