@@ -10,7 +10,12 @@
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <fieldset>
                             <legend>Bill</legend>
-                            <form action="{{ url('orderPost')}}" method="POST" id="form-order">
+                            <form action="#" method="POST" id="form-order">
+                                <div id="form-append">
+
+                                </div>
+                                {{ csrf_field() }}
+                                <button type="submit" id="btn-submit-form" class="btn btn-primary">OK</button>
                             </form>
                         </fieldset>
                     </div>
@@ -33,6 +38,9 @@
 </div>
 @endsection
 <style type="text/css">
+    #btn-submit-form {
+        display: none;
+    }
 </style>
 <script type="text/javascript">
 var list_id_in_bill = [];
@@ -44,6 +52,9 @@ function removeProduct(id) {
         index = list_id_in_bill.indexOf(id);
         list_id_in_bill.splice(index,1);
     }
+    if (list_id_in_bill.length == 0) {
+        document.getElementById("btn-submit-form").style.display = 'none';
+    }
 }
 function change(id,value) {
     document.getElementById(id).value = parseInt(document.getElementById(id).value) + parseInt(value);
@@ -51,7 +62,10 @@ function change(id,value) {
 function addProduct(id, name) {
     if (list_id_in_bill.indexOf(id) === -1) {
         list_id_in_bill.push(id);
-        document.getElementById('form-order').innerHTML += htmlForEachProduct(id, name);
+        document.getElementById('form-append').innerHTML += htmlForEachProduct(id, name);
+        if (list_id_in_bill.length != 0) {
+            document.getElementById("btn-submit-form").style.display = 'inline-block';
+        }
     }
 }
 function htmlForEachProduct(id, name) {

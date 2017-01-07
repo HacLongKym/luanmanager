@@ -37,7 +37,15 @@ Route::get('/order', [
     'uses' => 'OrderController@index',
     'role' => User::ROLE_ADMIN + User::ROLE_MANAGER + User::ROLE_ORDER,
 ]);
+Route::get('/order/table/{id}', [
+    'uses' => 'OrderController@order',
+    'role' => User::ROLE_ADMIN + User::ROLE_MANAGER + User::ROLE_ORDER,
+]);
 
+Route::post('/order/table/{id}', [
+    'uses' => 'OrderController@orderPost',
+    'role' => User::ROLE_ADMIN + User::ROLE_MANAGER + User::ROLE_ORDER,
+]);
 /**
  * Route of role Chef
  */
