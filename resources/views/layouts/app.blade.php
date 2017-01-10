@@ -13,14 +13,32 @@
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/bootstrap.min.css" crossorigin="anonymous">
 
     <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="/css/bootstrap-theme.min.css" crossorigin="anonymous">
+    <style type="text/css">
+        .success-message {
+            text-align: center;
+            color: blue;
+            width: 100%;
+            font-weight: bold;
+            background: yellow;
+        }
+        .error-message {
+            text-align: center;
+            color: red;
+            width: 80%;
+            font-weight: bold;
+            background: yellow;
+        }
+    </style>
+    <script src="/js/jquery.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js" crossorigin="anonymous"></script>
+    
+    <script src="/js/masonry.pkgd.min.js"></script>
+<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js"></script>
     <!-- Scripts -->
     <script>
         window.Laravel = <?php echo json_encode([
@@ -41,20 +59,25 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    @if (!Auth::guest() && Auth::user()->role == \App\User::ROLE_ADMIN)
-                        <!-- Branding Image -->
-                        <a class="navbar-brand" href="{{ url('/admin') }}">
-                            {{ config('app.name', 'Marron') }} User
-                        </a>
-                        <a class="navbar-brand" href="{{ url('admin/Table/table') }}">Table</a>
-                        <a class="navbar-brand" href="{{ url('admin/Category/category') }}">Category</a>
-                        <a class="navbar-brand" href="{{ url('admin/Product/product') }}">Product</a>
-                        <a class="navbar-brand" href="{{ url('admin/User/users') }}">User</a>
+                    <!-- Branding Image -->
+                    <a class="navbar-brand" href="{{ url('/') }}">
+                        {{ config('app.name', 'Marron') }}
+                    </a>
+                    @if (!Auth::guest())
+                        @if (Auth::user()->hasRole(\App\User::ROLE_ADMIN))
+                            <a class="navbar-brand" href="{{ url('/admin') }}">ADMIN</a>
+                            <a class="navbar-brand" href="{{ url('admin/Table/table') }}">Table</a>
+                            <a class="navbar-brand" href="{{ url('admin/Category/category') }}">Category</a>
+                            <a class="navbar-brand" href="{{ url('admin/Product/product') }}">Product</a>
+                            <a class="navbar-brand" href="{{ url('admin/User/users') }}">User</a>
+                        @elseif (Auth::user()->hasRole(\App\User::ROLE_ORDER))
+                            <a class="navbar-brand" href="{{ url('/order') }}">Order</a>
+                        @elseif (Auth::user()->hasRole(\App\User::ROLE_CHEF))
+                            <a class="navbar-brand" href="{{ url('/chef') }}">CHEF</a>
+                        @elseif (Auth::user()->hasRole(\App\User::ROLE_BAR))
+                            <a class="navbar-brand" href="{{ url('/bar') }}">BAR</a>
+                        @endif
                     @else
-                        <!-- Branding Image -->
-                        <a class="navbar-brand" href="{{ url('/') }}">
-                            {{ config('app.name', 'Marron') }}
-                        </a>
                     @endif
                 </div>
 

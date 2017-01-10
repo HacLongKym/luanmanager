@@ -11,6 +11,9 @@
 |
  */
 use App\User;
+/**
+ * Route of GUEST
+ */
 Route::get('/', [
     'uses' => function () {return view('welcome');},
     // 'role' => User::ROLE_ADMIN,
@@ -46,6 +49,8 @@ Route::post('/order/table/{id}', [
     'uses' => 'OrderController@orderPost',
     'role' => User::ROLE_ADMIN + User::ROLE_MANAGER + User::ROLE_ORDER,
 ]);
+
+
 /**
  * Route of role Chef
  */
@@ -53,10 +58,11 @@ Route::get('/chef', [
     'uses' => 'ChefController@index',
     'role' => User::ROLE_ADMIN + User::ROLE_MANAGER + User::ROLE_CHEF,
 ]);
+
+/**
+ * Route of role admin or manager
+ */
 Route::group(['prefix' => 'admin', 'role' => User::ROLE_ADMIN], function () {
-    /**
-     * Route of role admin or manager
-     */
     Route::get('/', [
         'uses' => 'AdminController@index'
     ]);

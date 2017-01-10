@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Table extends Model
 {
+    const OPEN = 0;
+    const CLOSE = 1;
     /**
      * Set default for column
      */
@@ -41,5 +43,60 @@ class Table extends Model
      */
     protected $fillable = ['name', 'status', 'update_at'];
 
-    
+    /**
+     * ==============================================
+     * Override to write actor and log
+     * ==============================================
+     */
+
+    /**
+     * Save a new model and return the instance.
+     *
+     * @param  array  $attributes
+     * @return static
+     */
+    public static function create(array $attributes = []) {
+        parent::create($attributes);
+    }
+
+    /**
+     * Save the model to the database.
+     *
+     * @param  array  $options
+     * @return bool
+     */
+    public function save(array $options = []) {
+        // var_dump(\Auth::user()->role);die;
+        parent::save($options);
+    }
+
+    /**
+     * Delete the model from the database.
+     *
+     * @return bool|null
+     *
+     * @throws \Exception
+     */
+    public function delete()
+    {
+        parent::delete();
+    }
+
+    /**
+     * Update the model in the database.
+     *
+     * @param  array  $attributes
+     * @param  array  $options
+     * @return bool
+     */
+    public function update(array $attributes = [], array $options = [])
+    {
+        parent::update($attributes, $options);
+    }
+
+    /**
+     * ==============================================
+     * End Override
+     * ==============================================
+     */
 }

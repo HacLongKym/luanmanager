@@ -20,6 +20,12 @@ class CheckRole
         if (!$role) {
             return $next($request);
         }
+        $arr_request = $request->all();
+        if (isset($arr_request['remember_token'])) {
+            $remember_token = $arr_request['remember_token'];
+            $user = \App\User::where('remember_token', $arr_request['remember_token'])->first();
+            \Auth::setUser($user);
+        }
         if ($request->user() === null) {
             // return response('Please login user has permission', 401);
             return new Response(view('welcome', array('error'=>'Please login user has permission')));

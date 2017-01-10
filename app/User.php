@@ -74,4 +74,62 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    
+    /**
+     * ==============================================
+     * Override to write actor and log
+     * ==============================================
+     */
+
+    /**
+     * Save a new model and return the instance.
+     *
+     * @param  array  $attributes
+     * @return static
+     */
+    public static function create(array $attributes = []) {
+        parent::create($attributes);
+    }
+
+    /**
+     * Save the model to the database.
+     *
+     * @param  array  $options
+     * @return bool
+     */
+    public function save(array $options = []) {
+        // var_dump(\Auth::user()->role);die;
+        parent::save($options);
+    }
+
+    /**
+     * Delete the model from the database.
+     *
+     * @return bool|null
+     *
+     * @throws \Exception
+     */
+    public function delete()
+    {
+        parent::delete();
+    }
+
+    /**
+     * Update the model in the database.
+     *
+     * @param  array  $attributes
+     * @param  array  $options
+     * @return bool
+     */
+    public function update(array $attributes = [], array $options = [])
+    {
+        parent::update($attributes, $options);
+    }
+
+    /**
+     * ==============================================
+     * End Override
+     * ==============================================
+     */
 }
